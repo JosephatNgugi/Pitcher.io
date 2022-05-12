@@ -1,0 +1,4 @@
+pitcher/
+*.pyc
+.vscode/
+start.sh

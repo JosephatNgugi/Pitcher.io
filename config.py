@@ -25,6 +25,6 @@ class DevConfig(Config):
     DEBUG = True
     
 config_options = {
-    'developmet': DevConfig,
+    'development': DevConfig,
     'production': ProdConfig
 }
