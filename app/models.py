@@ -24,5 +24,16 @@ class Pitch(db.Model):
     
 
 # Comment class Model
-
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String(255))
+    
 # Vote class Model
+class Vote(db.Model):
+    __tablename__ = 'votes'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    up_vote = db.Column(db.Integer)
+    down_vote = db.Column(db.Integer)
