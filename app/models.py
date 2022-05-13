@@ -1,4 +1,5 @@
 from . import db
+from werkzeug.security import generate_password_hash,check_password_hash
 from datetime import datetime
 
 # User class Model
@@ -13,6 +14,20 @@ class User(db.Model):
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255),nullable=False)
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
+
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+    
+    @password.setter
+    def password(self, password):
+        self.password_secure = generate_password_hash(password)
+    
+    def verify_password(self, password):
+        return check_password_hash(self.password_secure, password)
+    
+    def __repr__(self):
+        return f"User {self.username}"
 
 # Pitch class Model
 class Pitch(db.Model):
