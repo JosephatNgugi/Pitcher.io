@@ -38,7 +38,7 @@ class Pitch(db.Model):
     title = db.Column(db.String(255),nullable=False)
     post = db.Column(db.String(255),nullable=False)
     category = db.Column(db.String(255))
-    post_time = db.Column(db.Datetime, default=datetime.utcnow)
+    post_time = db.Column(db.DateTime, default=datetime.utcnow)
     comments = db.relationship('Comment', backref='pitch', lazy='dynamic')
     votes = db.relationship('Vote', backref='pitch', lazy='dynamic')
 
@@ -50,7 +50,7 @@ class Comment(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(255))
-    comment_time = db.Column(db.Datetime, default=datetime.utcnow)
+    comment_time = db.Column(db.DateTime, default=datetime.utcnow)
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
     
 # Vote class Model
