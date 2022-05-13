@@ -11,10 +11,17 @@ class User(db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255),nullable=False)
-    
-# Pitch class Model
 
-# Category class Model
+
+# Pitch class Model
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255),nullable=False)
+    post = db.Column(db.String(255),nullable=False)
+    category = db.Column(db.String(255))
+    
 
 # Comment class Model
 
