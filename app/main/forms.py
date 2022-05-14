@@ -6,4 +6,4 @@ class PitchForm(FlaskForm):
     category = SelectField(u'Category', choices=[('Quotes','Quotes'), ('Pickup Lines', 'Pickup Lines'), ('Memes', 'Memes')], validators=[InputRequired()])
     title = StringField("Pitch Title(Optional)")
     pitch = TextAreaField('Share Your Pitch', validators=[InputRequired()])
-    Submit = SubmitField('Post')
+    submit = SubmitField('Post')
