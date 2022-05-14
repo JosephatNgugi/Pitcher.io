@@ -1,1 +1,9 @@
-<h1>Hello World</h1>
+{% extends 'base.html' %}
+{% import 'macro.html' as macro %}
+
+{% block content %}
+<div class="container">
+    <h1>All Pitches</h1>
+    {{macro.displayPitch_cards(pitches)}}
+</div>
+{% endblock %}

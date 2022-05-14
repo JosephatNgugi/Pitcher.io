@@ -1,0 +1,16 @@
+{% macro displayPitch_cards(pitches) %}
+<div class="container-fluid">
+    <div class="row">
+        {% for item in pitches %}
+        <div class="col-md-3">
+            <h3>{{item.category}}</h3>
+            <div class="pitchBox">
+                <h2>{{item.title}}</h2>
+                <p>{{item.pitch}}</p>
+                <small>{{item.pitch_time}} {{item.comments}}<span>{{item.up_vote}}</span></small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
