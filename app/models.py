@@ -46,9 +46,9 @@ class Pitch(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(255),nullable=True)
-    post = db.Column(db.String(255),nullable=False)
+    pitch = db.Column(db.Text(255),nullable=False)
     category = db.Column(db.String(255))
-    post_time = db.Column(db.DateTime, default=datetime.utcnow)
+    pitch_time = db.Column(db.DateTime, default=datetime.utcnow)
     comments = db.relationship('Comment', backref='pitch', lazy='dynamic')
     votes = db.relationship('Vote', backref='pitch', lazy='dynamic')
 
@@ -62,7 +62,7 @@ class Pitch(db.Model):
         return pitches
     
     def __repr__(self):
-        return f'Pitch {self.post}'
+        return f'Pitch {self.pitch}'
         
 
 # Comment class Model
