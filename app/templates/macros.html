@@ -1,13 +1,21 @@
 {% macro displayPitch_cards(pitches) %}
 <div class="container-fluid">
     <div class="row">
-        {% for item in pitches %}
-        <div class="col-md-3">
-            <h3>{{item.category}}</h3>
+        {% for pitch in pitches %}
+        <div class="col-md-3 pitch-card">
+            <h3>{{pitch.category}}</h3>
+            <hr>
             <div class="pitchBox">
-                <h2>{{item.title}}</h2>
-                <p>{{item.pitch}}</p>
-                <small>{{item.pitch_time}} {{item.comments}}<span>{{item.up_vote}}</span></small>
+                <h2>{{pitch.title}}</h2>
+                <p>{{pitch.pitch}}</p>
+                <div class="sm">
+                   <p>Posted by:{{pitch.user.username[:10]}}</p>
+                   <p>
+                       {{pitch.comments.count()}} Comments
+                    <!-- <span>{{pitch.up_vote}}</span> -->
+                    <a href="{{url_for('main.comment', pitch_id=pitch.id)}}" class="btn btn-info">Comment</a>
+                    </p>
+                </div>
             </div>
         </div>
         {% endfor %}

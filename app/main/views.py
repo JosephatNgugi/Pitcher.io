@@ -1,9 +1,9 @@
 from flask import render_template,redirect,url_for,abort, request
 from flask_login import login_required,current_user
 from . import main
-from ..models import Pitch, User
+from ..models import Comment, Pitch, User
 from .. import db,photos
-from .forms import PitchForm, UpdateProfile
+from .forms import CommentForm, PitchForm, UpdateProfile
 
 @main.route("/")
 def index():
@@ -64,4 +64,18 @@ def add_pitch():
         return redirect(url_for('main.index'))
     title = 'Create New Pitch'
     return render_template('pitch.html', title=title, form=form)
-        
+
+@main.route('/comment/<int:pitch_id>', methods=['GET', 'POST'])
+@login_required
+def comment(pitch_id):
+    form = CommentForm()
+    pitch = Pitch.query.get(pitch_id)
+    comments = Comment.query.filter_by(pitch_id=pitch_id).all()
+    if form.validate_on_submit():
+        comment = form.comment.data
+        pitch_id = pitch.id
+        user_id = current_user._get_current_object().id
+        new_comment = Comment(comment=comment, user_id =user_id, pitch_id =pitch_id)      
+        new_comment.save_comment()
+        return redirect(url_for('.comment', pitch_id =pitch_id))
+    return render_template('comment.html', form=form, pitch=pitch, comments=comments)
