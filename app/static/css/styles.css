@@ -1,0 +1,45 @@
+.navbar{
+    background-color: #080707;
+}
+.nav{
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+body{
+    background-color: #808080;
+}
+.header{
+    background-color: burlywood;
+    border-radius: 5rem;
+    padding: 2rem;
+}
+.header p{
+    font-size: 2rem;
+}
+.pitch-card{
+    padding: 0.3rem;
+    border: solid #808080;
+    border-radius: 35px;
+}
+.sm{
+    font-size: 0.5rem;
+    border-top: double rgb(23, 29, 32);
+}
+
+/* Comment styling */
+.sec-comm{
+    background-color: azure;
+    padding: 5rem;
+    max-height: 100%;
+    /* overflow: scroll; */
+    border: solid#171c1a;
+    border-width: 0.2px;
+    border-radius: 20px;
+}
+.p-com{
+    font-size: 1.5rem;
+}
+.c form{
+    font-size:  3rem;
+}
+/* Comment styling */
