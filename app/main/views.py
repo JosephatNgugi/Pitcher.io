@@ -50,7 +50,7 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
-@main.route("/pitch/new/<id>", methods=['GET', 'POST'])
+@main.route("/pitch/new", methods=['GET', 'POST'])
 @login_required
 def add_pitch():
     form = PitchForm()

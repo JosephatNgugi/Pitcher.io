@@ -26,7 +26,7 @@ def signup():
         mail_message("Welcome to Pitcher","email/welcome_user", user.email,user=user)
         return redirect(url_for('auth.login'))
     title = 'Sign Up'
-    return render_template('auth/signup.html',title=title, reg_form=form)
+    return render_template('auth/signup.html',title=title, form=form)
 
 @auth.route('/logout')
 @login_required
