@@ -21,7 +21,7 @@ An python web application that allows a user to create short pitches, view and c
 
 -----
 ## Host Link
-Click on this link to view the live website: 
+Click on this link to view the live website: https://joepitch.herokuapp.com/
 
 -----
 ## Known Bugs
