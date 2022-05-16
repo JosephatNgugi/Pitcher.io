@@ -1,7 +1,7 @@
 .navbar{
-    background-color: #080707;
+    background-color: #000144;
 }
-.nav{
+.navbar a{
     color: #FFFFFF;
     font-size: 2rem;
 }
@@ -9,7 +9,7 @@ body{
     background-color: #808080;
 }
 .header{
-    background-color: burlywood;
+    background-color: #DEB887;
     border-radius: 5rem;
     padding: 2rem;
 }
