@@ -4,7 +4,7 @@ class Config:
     """Parent class for general configurations settings"""
     
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Elm1n10@localhost/pitches'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Elm1n10@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
@@ -21,7 +21,10 @@ class ProdConfig(Config):
     Args:
         Config : Parent configurations settings to be inherited
     """
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
+    uri = os.getenv('DATABASE_URL')
+    if uri and uri.startswith('postgres://'):
+        uri = uri.replace('postgres://', 'postgresql://', 1)
+    SQLALCHEMY_DATABASE_URI = uri
 
 class DevConfig(Config):
     """
@@ -30,6 +33,7 @@ class DevConfig(Config):
     Args:
         Config : Parent configurations settings to be inherited
     """
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Elm1n10@localhost/pitches'
     DEBUG = True
     
 config_options = {
