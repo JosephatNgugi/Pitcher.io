@@ -21,7 +21,7 @@ class ProdConfig(Config):
     Args:
         Config : Parent configurations settings to be inherited
     """
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
 
 class DevConfig(Config):
     """
